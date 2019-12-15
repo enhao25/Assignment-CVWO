@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is an assignment for NUS Computing for Voluntary Welfare Organisations (CVWO) for 2019/2020.
 
-Things you may want to cover:
+<strong>Done by:</strong> <br>
+Name: Low En Hao <br>
+Matrix Number: A0200239U
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Note: The image showing that I have successfully set up rails is called "On_rails.png"
