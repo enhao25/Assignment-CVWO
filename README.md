@@ -7,3 +7,9 @@ Name: Low En Hao <br>
 Matrix Number: A0200239U
 
 Note: The image showing that I have successfully set up rails is called "On_rails.png"
+
+Mid-Assignment File:
+<ul>
+  <li>"On_rails.png"</li>
+  <li>"Mid-Assignment Writeup"</li>
+</ul>  
