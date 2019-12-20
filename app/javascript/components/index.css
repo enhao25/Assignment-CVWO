@@ -2,11 +2,30 @@
 * {
     box-sizing: border-box;
   }
+
+  h2{
+    margin-bottom: 20px;
+  }
+
+  #mainDiv{
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .right_list{
+    float: right;
+    margin-right: 30px;
+  }
+
+  #delete_btn{
+    margin-left: 10px;
+  }
   
   /* Remove margins and padding from the list */
   ul {
     margin: 0;
     padding: 0;
+    list-style-type:none;
   }
   
   /* Style the list items */
@@ -28,7 +47,7 @@
   /* Set all odd list items to a different color (zebra-stripes) */
   ul li:nth-child(odd) {
     background: #f9f9f9;
-  }
+  } 
   
   /* Darker background-color on hover */
   ul li:hover {
@@ -71,9 +90,7 @@
   
   /* Style the header */
   .header {
-    background-color: #f44336;
     padding: 30px 40px;
-    color: white;
     text-align: center;
   }
   
@@ -85,9 +102,8 @@
   }
   
   /* Style the input */
-  input {
+  input:not(#delete_btn):not(#searchbar) {
     margin: 0;
-    border: none;
     border-radius: 0;
     width: 75%;
     padding: 10px;
@@ -97,7 +113,7 @@
   
   /* Style the "Add" button */
   .addBtn {
-    padding: 10px;
+    padding: 12px;
     width: 25%;
     background: #d9d9d9;
     color: #555;
@@ -106,7 +122,6 @@
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
-    border-radius: 0;
   }
   
   .addBtn:hover {

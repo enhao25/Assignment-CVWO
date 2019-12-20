@@ -1,0 +1,28 @@
+#sidebarID{
+    background-color: #f3f4f7;
+    height: auto;
+    padding-right: 0;
+}
+#welcometxt{
+    margin: 10px;
+    padding-bottom: 10px;
+}
+
+#searchbar{
+    background: lightgrey;
+    width: 100%;
+}
+
+.btns{
+    width: 100%;
+}
+
+.partdiv{
+    margin-top: 40px;
+}
+
+select{
+    width: 100%;
+    padding: 5px;
+}
+
