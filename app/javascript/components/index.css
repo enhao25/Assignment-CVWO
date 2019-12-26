@@ -17,7 +17,7 @@
     margin-right: 30px;
   }
 
-  #delete_btn{
+  .delete_btn{
     margin-left: 10px;
   }
   
@@ -102,7 +102,7 @@
   }
   
   /* Style the input */
-  input:not(#delete_btn):not(#searchbar) {
+  input:not(.delete_btn):not(#searchbar) {
     margin: 0;
     border-radius: 0;
     width: 75%;

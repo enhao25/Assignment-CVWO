@@ -1,20 +1,37 @@
 import React, { Component } from 'react';
-import Task from "./task";
+import TaskList from "./tasklist";
 
 class Mainpage extends Component{
-    constructor(){
-        super()
+    constructor(task_array){
+        super(task_array)
         this.onaddevent = this.onaddevent.bind(this);
+        this.state = { tasks: task_array }
     }
 
     onaddevent(event){
         // Database fields: taskid, description, active 
-        console.log(this.refs.addText.value)
+        // When we click on add task, the textbox will be set to ""
         this.refs.addText.value = "";
-        console.log("Added")
+        // Action to add to database
+        console.log(this.state.tasks)
+    }
+
+    ondeleteclick = (event) => {
+        if(confirm("Are you sure you want to delete this task?")){
+            console.log('delete button click')
+            const targetid = event.target.id.substring(6)
+            // Delete the task from database
+            console.log(targetid)
+        }
+        else{}
+        
     }
 
     render(){
+        console.log(this.state.tasks)
+        const filtered_task = this.state.tasks['task_array'].filter(task => {
+            return task.description.toLocaleLowerCase().includes(this.props.searchval.toLocaleLowerCase())
+        })
         return(
             <div id="mainDiv" className="col-sm-9">
                 <div id="myDIV" className="header">
@@ -23,16 +40,8 @@ class Mainpage extends Component{
                     <span onClick={this.onaddevent} className="addBtn">Add</span>
                 </div>
                 
-                <ul id="myUL">
-                    <li>
-                        <Task taskid="task1" taskname="Buy Food"/>
-                    </li>
-                    <li className="checked">Pay bills</li>
-                    <li>Meet George</li>
-                    <li>Buy eggs</li>
-                    <li>Read a book</li>
-                    <li>Organize office</li>
-                </ul>
+                <TaskList tasks={filtered_task} ondeleteclick={this.ondeleteclick} searchval={this.props.searchval} />
+                
             </div>
         )
     }

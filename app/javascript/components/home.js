@@ -13,20 +13,20 @@ class Home extends Component{
                 {id: 3, description: 'Meet George', active: true},
                 {id: 4, description: 'Buy eggs', active: true}
             ],
-            searchval : ""
+            searchval : "",
+            input : ""
         }
-        this.onclickevent = this.onclickevent.bind(this);
     }
 
-    onclickevent = (event) => {
-        this.setState({ searchval: this.refs.searchText.value })
-        console.log(this.searchval);
+    onsearchchange =(event) =>{
+        this.setState({searchval: event.target.value})
     }
+
     render(){
         return(
             <div className="row">
-                <Sidebar />
-                <Mainpage />
+                <Sidebar onsearchchange={this.onsearchchange} />
+                <Mainpage task_array={this.state.task} searchval={this.state.searchval} />
             </div>
         )
     }
