@@ -11,5 +11,5 @@ Note: The image showing that I have successfully set up rails is called "On_rail
 Mid-Assignment File:
 <ul>
   <li>"On_rails.png"</li>
-  <li>"Mid-Assignment Writeup"</li>
+  <li>"Mid-Assignment Writeup.pdf"</li>
 </ul>  
