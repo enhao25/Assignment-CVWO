@@ -4,7 +4,7 @@ import "../components/sidebar.css"
 const Sidebar = ({onsearchchange}) => {
 
     return(
-        <div id="sidebarID" className="col-sm-3">
+        <div id="sidebarID" className="col-sm-3 col-12">
             <h4 id="welcometxt">Welcome</h4>
             <input type="text" id="searchbar" placeholder="Search Bar" onChange={onsearchchange}/>
             {/* <button type="button" className="btns">Search</button> */}

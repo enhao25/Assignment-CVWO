@@ -20,6 +20,13 @@
   .delete_btn{
     margin-left: 10px;
   }
+
+  #complete_btn{
+    float: right;
+    margin-top: 10px;
+    width: 180px;
+    border: 2px solid lightskyblue
+  }
   
   /* Remove margins and padding from the list */
   ul {

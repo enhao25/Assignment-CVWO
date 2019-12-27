@@ -5,3 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+SAMPLE_TASK = [
+    {
+        description: 'Buy Food',
+        active: true
+    },
+    {
+        description: 'Pay Bills',
+        active: false
+    },
+    {
+        description: 'Buy Eggs',
+        active: false
+    }
+]
+
+SAMPLE_TASK.each do |task|
+    Task.create(task)
+  end
