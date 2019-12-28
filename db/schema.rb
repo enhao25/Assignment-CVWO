@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_20_031336) do
+ActiveRecord::Schema.define(version: 2019_12_28_041433) do
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.string "description"
     t.boolean "active"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "Tags_id"
+    t.index ["Tags_id"], name: "index_tasks_on_Tags_id"
   end
 
+  add_foreign_key "tasks", "Tags", column: "Tags_id"
 end

@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   # get 'pages/index'
 
-  resources :tasks
-  # resources: tags
+  resources :tasks, :tags
 
   root 'pages#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
