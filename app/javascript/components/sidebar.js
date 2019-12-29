@@ -2,7 +2,7 @@ import React from 'react'
 import "../components/sidebar.css"
 import TagList from "./taglist"
 
-const Sidebar = ({onsearchchange, ontagchange, addTagOnClick, tags}) => {
+const Sidebar = ({onsearchchange, ontagchange, addTagOnClick, onfilterchange, deleteTagOnClick, filterval, tags}) => {
     
     return(
         <div id="sidebarID" className="col-sm-3 col-12">
@@ -10,7 +10,8 @@ const Sidebar = ({onsearchchange, ontagchange, addTagOnClick, tags}) => {
             <input type="text" id="searchbar" placeholder="Search Bar" onChange={onsearchchange}/>
             <div className="partdiv">
                 <h4 className="text-center">Filter</h4>
-                <TagList tags={tags}/>
+                <TagList onfilterchange={onfilterchange} tags={tags}/>
+                <button type="button" className="btns" onClick={deleteTagOnClick} disabled={!filterval}>Delete Tag</button>
             </div>
             <div className="partdiv">
                 <h4 className="text-center">Add Tag</h4>

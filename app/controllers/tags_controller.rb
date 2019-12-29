@@ -12,6 +12,11 @@ class TagsController < ApplicationController
         render json: tag
     end
 
+    def destroy
+        Tag.destroy(params[:id])
+        head :ok
+    end
+
     def tag_params
         params.permit(:name)
     end

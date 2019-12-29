@@ -1,3 +1,3 @@
 class Task < ApplicationRecord
-    has_many :tag
+    has_many :tags
 end

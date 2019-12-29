@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Sidebar from "../components/sidebar"
 import Mainpage from "./mainpage"
 import "../components/index.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap';
 
 class Home extends Component{
     constructor(){
@@ -11,7 +13,8 @@ class Home extends Component{
             tags: [],
             searchval : "",
             input : "",
-            addtagval: ""
+            addtagval: "",
+            filterval: ""
         }
     }
 
@@ -40,6 +43,10 @@ class Home extends Component{
         this.setState({addtagval: event.target.value})
     }
 
+    onfilterchange = (event) => {
+        this.setState({ filterval: event.target.value })
+    }
+
     addTagOnClick = () => {
         if(confirm("Add this to the list of tags?")){
             
@@ -62,16 +69,38 @@ class Home extends Component{
         }
     }
 
+    deleteTagOnClick = () => {
+        // Get id of selected filter
+        const targetid = this.state.filterval
+        // Delete action
+        if(confirm("Delete this Tag?")){
+            fetch('/tags/' + targetid, {
+                method: 'delete'
+            }).then((response) => {
+                if (response.status === 200){
+                    this.fetchTags()
+                    alert('Tag successfully deleted');
+                }
+                else{
+                    alert("Error deleting tag")
+                }
+            });
+        }
+    }
+
     render(){
-        const { tasks, tags, searchval } = this.state;
+        const { tasks, tags, searchval, filterval } = this.state;
         return(
             <div className="row">
                 <Sidebar 
                     onsearchchange={this.onsearchchange} 
                     ontagchange={this.ontagchange} 
-                    addTagOnClick={this.addTagOnClick} 
+                    addTagOnClick={this.addTagOnClick}
+                    onfilterchange={this.onfilterchange}
+                    deleteTagOnClick={this.deleteTagOnClick}
+                    filterval={this.state.filterval} 
                     tags={tags} />
-                <Mainpage tasks={tasks} tags={tags} searchval={searchval} fetchTask={this.fetchTask} />
+                <Mainpage tasks={tasks} tags={tags} searchval={searchval} filterval={filterval} fetchTask={this.fetchTask} />
             </div>
         )
     }

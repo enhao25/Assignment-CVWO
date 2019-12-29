@@ -27,6 +27,19 @@
     width: 180px;
     border: 2px solid lightskyblue
   }
+
+  .combo { position: relative; }
+  #trigger { position: absolute; right: 36%; top: 10px; cursor: pointer; }
+  #trigger_label {position: absolute; left: 65%; top: 12px; font-size: 14px;}
+
+  #checkboxes label {
+    float: left;
+  }
+  #checkboxes ul {
+    margin: 0;
+    list-style: none;
+    float: left;
+  }
   
   /* Remove margins and padding from the list */
   ul {
