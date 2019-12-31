@@ -1,5 +1,5 @@
 import React from 'react'
-import "./sidebar.css"
+import "../../assets/stylesheets/sidebar.css"
 import TagList from "./taglist"
 
 const Sidebar = ({onsearchchange, ontagchange, addTagOnClick, onfilterchange, deleteTagOnClick, filterval, tags}) => {
