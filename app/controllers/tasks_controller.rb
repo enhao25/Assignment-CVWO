@@ -26,7 +26,7 @@ class TasksController < ApplicationController
     private 
 
     def task_params
-        params.permit(:description, :active, :Tags_id)
+        params.permit(:description, :active, :tags_id)
     end
 
 end

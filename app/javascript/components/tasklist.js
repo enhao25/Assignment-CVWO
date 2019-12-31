@@ -8,13 +8,13 @@ const TaskList = ({tasks, tags, update_task, ondeleteclick, onUpdateClick, listO
         
         function tag_loop(){
             for(let index = 0; index < tags.length; index++){
-                if(task.Tags_id == tags[index].id){
+                if(task.tags_id == tags[index].id){
                     return tags[index].name
                 }
             }
         }
         
-        const tag_value = task.Tags_id ?  tag_loop() : null
+        const tag_value = task.tags_id ?  tag_loop() : null
 
         return( 
             <li key={i} onClick={()=>listOnClick(task.id)} >

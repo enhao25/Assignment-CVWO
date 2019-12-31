@@ -19,7 +19,7 @@ class Mainpage extends Component{
     onaddevent(event){
         // Database fields: taskid, description, active 
         // When we click on add task, the textbox will be set to ""
-        const new_task = { description: this.refs.addText.value, active: true, Tags_id: this.state.tag_id }
+        const new_task = { description: this.refs.addText.value, active: true, tags_id: this.state.tag_id }
         // Action to add to database
         console.log(new_task)
         fetch('/tasks', {
@@ -62,7 +62,7 @@ class Mainpage extends Component{
         const update_confirm = confirm("Are you sure you want to update the task?")
 
         if(update_task !== null && update_task != "" && update_confirm){
-            const up_task = { description: update_task, active: true, Tags_id: update_tag }
+            const up_task = { description: update_task, active: true, tags_id: update_tag }
             // Update task from database
             fetch('/tasks/' + taskid, {
                 method: 'put',
@@ -150,7 +150,7 @@ class Mainpage extends Component{
         const tag_filtered_task = search_filtered_task.filter(task => {
             return !this.props.filterval 
                 ? true 
-                : this.props.filterval == task.Tags_id
+                : this.props.filterval == task.tags_id
         })
         return(
             <div id="mainDiv" className="col-sm-9 col-12">
