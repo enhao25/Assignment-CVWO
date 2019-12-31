@@ -15,7 +15,7 @@ const TaskList = ({tasks, tags, update_task, ondeleteclick, onUpdateClick, listO
         const tag_value = task.tags_id ?  tag_loop() : null
 
         return( 
-            <li key={i} onClick={()=>listOnClick(task.id)} >
+            <li key={i} onClick={listOnClick} >
                 <Task 
                     taskid={task.id}  
                     taskname={task.description}

@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import Sidebar from "./sidebar"
 import Mainpage from "./mainpage"
-// import 'semantic-ui-css/semantic.min.css'
-// import 'bootstrap/dist/css/bootstrap.min.css'
 
 class Home extends Component{
     constructor(){
@@ -56,7 +54,6 @@ class Home extends Component{
                 body: JSON.stringify(new_tag),
                 headers: { 'Content-Type': 'application/json' }
             }).then((response) => {
-                console.log(response)
                 if (response.status === 200){
                     this.fetchTags()
                     alert('Tag successfuly added');

@@ -16,26 +16,30 @@ class Mainpage extends Component{
         }
     }
 
-    onaddevent(event){
+    onaddevent(){
         // Database fields: taskid, description, active 
         // When we click on add task, the textbox will be set to ""
         const new_task = { description: this.refs.addText.value, active: true, tags_id: this.state.tag_id }
         // Action to add to database
-        console.log(new_task)
-        fetch('/tasks', {
-            method: 'post',
-            body: JSON.stringify(new_task),
-            headers: { 'Content-Type': 'application/json' }
-        }).then((response) => {
-            if (response.status === 200){
-                this.refs.addText.value = "";
-                this.props.fetchTask()
-                alert('Task created successfully');
-            }
-            else{
-                alert("Error adding task to database")
-            }
-        });
+        if (this.refs.addText.value){
+            fetch('/tasks', {
+                method: 'post',
+                body: JSON.stringify(new_task),
+                headers: { 'Content-Type': 'application/json' }
+            }).then((response) => {
+                if (response.status === 200){
+                    this.refs.addText.value = "";
+                    this.props.fetchTask()
+                    alert('Task created successfully');
+                }
+                else{
+                    alert("Error adding task to database")
+                }
+            });
+        }
+        else{
+            alert("Description cannot be empty")
+        }
     }
 
     ondeleteclick = (event) => {
@@ -127,13 +131,16 @@ class Mainpage extends Component{
     }
 
     // When the user click on the list, the checkbox will change status
-    listOnClick = (id) => {
-        var input_cb = document.getElementById(id);
-        if(input_cb.checked){
-            input_cb.checked = false
-        }
-        else{
-            input_cb.checked = true
+    listOnClick = (event) => {
+        if(event.target.classList.contains("custom-checkbox")){
+            const checkboxid = event.target.id.substring(4)
+            var input_cb = document.getElementById(checkboxid);
+            if(input_cb.checked){
+                input_cb.checked = false
+            }
+            else{
+                input_cb.checked = true
+            }
         }
     }
 

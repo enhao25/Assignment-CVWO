@@ -4,7 +4,7 @@ import UpdateModal from "./modal"
 const Task = ({taskid, taskname, update_task, tags, tag_value, ondeleteclick, onUpdateClick, onModalOpen, onModalNameChange, onModalTagChange}) => {
 
     return(
-        <div className="custom-control custom-checkbox">
+        <div className="custom-control custom-checkbox" id={"list" + taskid}>
             <input type="checkbox" className="custom-control-input" id={taskid} name="task_cb"/>
             <label className="custom-control-label" htmlFor={taskid} >
                 {taskname}
