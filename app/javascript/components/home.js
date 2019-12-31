@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Sidebar from "./sidebar"
 import Mainpage from "./mainpage"
-import 'semantic-ui-css/semantic.min.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'semantic-ui-css/semantic.min.css'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 
 class Home extends Component{
     constructor(){
