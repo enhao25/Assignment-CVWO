@@ -25,7 +25,7 @@ development:
 #   # database: db/test.sqlite3
 #   database: todolist_test
 
-# production:
-#   <<: *default
-#   # database: db/production.sqlite3
-#   database: todolist
+production:
+  # database: db/production.sqlite3
+  # database: todolist
+  url: <%= ENV['DATABASE_URL'] %>
