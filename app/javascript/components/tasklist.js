@@ -1,8 +1,6 @@
 import React from 'react';
 import Task from "./task";
 
-
-
 const TaskList = ({tasks, tags, update_task, ondeleteclick, onUpdateClick, listOnClick, onModalOpen, onModalNameChange, onModalTagChange}) => {
     const Task_array = tasks.map((task, i) => {
         
