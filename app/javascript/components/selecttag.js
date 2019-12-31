@@ -29,7 +29,7 @@ const SelectTag = ({tags, selectTagOnClick}) => {
 
   return(
       <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-          <img id="trigger" src={require('../../assets/images/black_tag.png')}/>
+          <i aria-hidden="true" className="tags icon" id="trigger"></i>
       </OverlayTrigger>
   )
 }

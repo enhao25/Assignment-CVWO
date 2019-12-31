@@ -1,7 +1,7 @@
 import React from 'react';
 import Tag from "./tag";
 
-const TagList = ({ onfilterchange, tags }) => {
+const TagList = ({ onfilterchange, tags, onModalTagChange }) => {
     const Tag_array = tags.map((tags, i) => {
         return( 
             <Tag key={i}
@@ -10,7 +10,7 @@ const TagList = ({ onfilterchange, tags }) => {
         )
     })
     return(
-        <select onChange={onfilterchange}>
+        <select onChange={onfilterchange || onModalTagChange}>
             <option value="">None</option>
             {Tag_array}
         </select>

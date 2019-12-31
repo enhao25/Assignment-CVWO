@@ -23,9 +23,7 @@
 
   #complete_btn{
     float: right;
-    margin-top: 10px;
     width: 180px;
-    border: 2px solid lightskyblue
   }
 
   .combo { position: relative; }

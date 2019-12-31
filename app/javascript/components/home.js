@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import Sidebar from "../components/sidebar"
 import Mainpage from "./mainpage"
+import 'semantic-ui-css/semantic.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import "../components/index.css"
-import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap';
 
 class Home extends Component{
     constructor(){
@@ -51,13 +51,13 @@ class Home extends Component{
         if(confirm("Add this to the list of tags?")){
             
             const new_tag = { name: this.state.addtagval }
-            
             // Add tag to database
             fetch('/tags', {
                 method: 'post',
                 body: JSON.stringify(new_tag),
                 headers: { 'Content-Type': 'application/json' }
             }).then((response) => {
+                console.log(response)
                 if (response.status === 200){
                     this.fetchTags()
                     alert('Tag successfuly added');
@@ -79,6 +79,7 @@ class Home extends Component{
             }).then((response) => {
                 if (response.status === 200){
                     this.fetchTags()
+                    this.setState({ filterval: "" })
                     alert('Tag successfully deleted');
                 }
                 else{

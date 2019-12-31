@@ -6,17 +6,19 @@ const Sidebar = ({onsearchchange, ontagchange, addTagOnClick, onfilterchange, de
     
     return(
         <div id="sidebarID" className="col-sm-3 col-12">
-            <h4 id="welcometxt">Welcome</h4>
-            <input type="text" id="searchbar" placeholder="Search Bar" onChange={onsearchchange}/>
-            <div className="partdiv">
-                <h4 className="text-center">Filter</h4>
-                <TagList onfilterchange={onfilterchange} tags={tags}/>
-                <button type="button" className="btns" onClick={deleteTagOnClick} disabled={!filterval}>Delete Tag</button>
+            <h3 id="welcometxt">Welcome</h3>
+            <div className="ui input max_width">
+                <input type="text" id="searchbar" placeholder="Search..." onChange={onsearchchange} />
             </div>
             <div className="partdiv">
-                <h4 className="text-center">Add Tag</h4>
-                <input name="add_tag" placeholder="Add New Tag" onChange={ontagchange} style={{width: "100%"}}/>
-                <button type="button" className="btns" onClick={addTagOnClick}>Add Tag</button>
+                <h3 className="text-center">Filter</h3>
+                <TagList onfilterchange={onfilterchange} tags={tags}/>
+                <button className="ui button max_width" onClick={deleteTagOnClick} disabled={!filterval}>Delete Tag</button>
+            </div>
+            <div className="partdiv">
+                <h3 className="text-center">Add Tag</h3>
+                <input name="add_tag" className="max_width" placeholder="Add New Tag" onChange={ontagchange}/>
+                <button className="ui button max_width" onClick={addTagOnClick}>Add Tag</button>
             </div>
         </div>
     )

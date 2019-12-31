@@ -1,15 +1,35 @@
 import React from 'react';
 import Task from "./task";
 
-const TaskList = ({tasks, ondeleteclick, onUpdateClick, listOnClick}) => {
-    const Task_array = tasks.map((array_val, i) => {
+
+
+const TaskList = ({tasks, tags, update_task, ondeleteclick, onUpdateClick, listOnClick, onModalOpen, onModalNameChange, onModalTagChange}) => {
+    const Task_array = tasks.map((task, i) => {
+        
+        function tag_loop(){
+            for(let index = 0; index < tags.length; index++){
+                if(task.Tags_id == tags[index].id){
+                    return tags[index].name
+                }
+            }
+        }
+        
+        const tag_value = task.Tags_id ?  tag_loop() : null
+
         return( 
-            <li key={i} onClick={()=>listOnClick(array_val.id)} >
+            <li key={i} onClick={()=>listOnClick(task.id)} >
                 <Task 
-                    taskid={array_val.id}  
-                    taskname={array_val.description} 
+                    taskid={task.id}  
+                    taskname={task.description}
+                    update_task={update_task}
+                    tags={tags}
+                    tag_value={tag_value} 
                     ondeleteclick={ondeleteclick}
-                    onUpdateClick={onUpdateClick}/>
+                    onUpdateClick={onUpdateClick}
+                    onModalOpen={onModalOpen}
+                    onModalNameChange={onModalNameChange}
+                    onModalTagChange={onModalTagChange}
+                    />
             </li>
         )
     })

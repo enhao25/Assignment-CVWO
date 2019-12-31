@@ -8,13 +8,8 @@
     padding-bottom: 10px;
 }
 
-#searchbar{
-    background: lightgrey;
-    width: 100%;
-}
-
-.btns{
-    width: 100%;
+.max_width{
+    width: 100% !important;
 }
 
 .partdiv{

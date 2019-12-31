@@ -10,7 +10,9 @@ class Mainpage extends Component{
             tasks: task_array, 
             new_task: {},
             tag_val: "None",
-            tag_id: null
+            tag_id: null,
+            update_task: "",
+            update_tag: ""
         }
     }
 
@@ -55,15 +57,16 @@ class Mainpage extends Component{
         else{}
     }
 
-    onUpdateClick = (event) => {
-        const n_des = prompt("What is the new description for the task?")
-        if(n_des !== null && n_des != ""){
-            const targetid = event.target.id.substring(6)
-            const update_task = { description: n_des, active: true }
+    onUpdateClick = (taskid) => {
+        const { update_task, update_tag } = this.state
+        const update_confirm = confirm("Are you sure you want to update the task?")
+
+        if(update_task !== null && update_task != "" && update_confirm){
+            const up_task = { description: update_task, active: true, Tags_id: update_tag }
             // Update task from database
-            fetch('/tasks/' + targetid, {
+            fetch('/tasks/' + taskid, {
                 method: 'put',
-                body: JSON.stringify(update_task),
+                body: JSON.stringify(up_task),
                 headers: { 'Content-Type': 'application/json' }
             }).then((response) => {
                 if (response.status === 200){
@@ -75,6 +78,20 @@ class Mainpage extends Component{
                 }
             });
         }
+    }
+    // When update modal opens
+    onModalOpen = (taskname) => {
+        this.setState({update_task: taskname.taskname})
+    }
+
+    // When update description changes
+    onModalNameChange = (event) => {
+        this.setState({update_task: event.target.value})
+    }
+
+    // When update tag changes
+    onModalTagChange = (event) => {
+        this.setState({update_tag: event.target.value})
     }
 
     onCompletedClick = () => {
@@ -138,7 +155,7 @@ class Mainpage extends Component{
         return(
             <div id="mainDiv" className="col-sm-9 col-12">
                 <div id="myDIV" className="header">
-                <button id="complete_btn" onClick={this.onCompletedClick}>Completed</button>
+                <button id="complete_btn" className="ui blue basic button" onClick={this.onCompletedClick}>Completed</button>
                     <h2>My To Do List</h2>
                     <div className="combo">
                         <input type="text" id="myInput" placeholder="Add Task..." ref="addText"/>
@@ -149,10 +166,15 @@ class Mainpage extends Component{
                 </div>
                 
                 <TaskList 
-                    tasks={tag_filtered_task} 
+                    tasks={tag_filtered_task}
+                    tags={this.props.tags} 
+                    update_task={this.state.update_task}
                     ondeleteclick={this.ondeleteclick} 
                     onUpdateClick={this.onUpdateClick} 
-                    listOnClick = {this.listOnClick}/>
+                    listOnClick = {this.listOnClick}
+                    onModalOpen={this.onModalOpen}
+                    onModalNameChange={this.onModalNameChange}
+                    onModalTagChange={this.onModalTagChange}/>
                 
             </div>
         )
