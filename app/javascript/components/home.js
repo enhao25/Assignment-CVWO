@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Sidebar from "./sidebar"
 import Mainpage from "./mainpage"
 
+
 class Home extends Component{
     constructor(){
         super()
