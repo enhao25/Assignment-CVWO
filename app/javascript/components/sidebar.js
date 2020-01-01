@@ -4,7 +4,7 @@ import TagList from "./taglist"
 const Sidebar = ({onsearchchange, ontagchange, addTagOnClick, onfilterchange, deleteTagOnClick, filterval, tags}) => {
     
     return(
-        <div id="sidebarID" className="col-sm-3 col-12">
+        <div id="sidebarID" className="col-md-3 col-sm-12">
             <h3 id="welcometxt">Welcome</h3>
             <div className="ui input max_width">
                 <input type="text" id="searchbar" placeholder="Search..." onChange={onsearchchange} />

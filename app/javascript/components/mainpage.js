@@ -160,7 +160,7 @@ class Mainpage extends Component{
                 : this.props.filterval == task.tags_id
         })
         return(
-            <div id="mainDiv" className="col-sm-9 col-12">
+            <div id="mainDiv" className="col-md-9 col-sm-12">
                 <div id="myDIV" className="header">
                 <button id="complete_btn" className="ui blue basic button" onClick={this.onCompletedClick}>Completed</button>
                     <h2>My To Do List</h2>
