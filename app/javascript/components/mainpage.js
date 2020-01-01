@@ -86,6 +86,7 @@ class Mainpage extends Component{
     // When update modal opens
     onModalOpen = (taskname) => {
         this.setState({update_task: taskname.taskname})
+        this.setState({update_tag: ""})
     }
 
     // When update description changes
