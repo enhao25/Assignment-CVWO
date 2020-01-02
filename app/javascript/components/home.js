@@ -46,24 +46,30 @@ class Home extends Component{
     }
 
     addTagOnClick = () => {
-        if(confirm("Add this to the list of tags?")){
+        if (this.state.addtagval){
+            if(confirm("Add this to the list of tags?")){
             
-            const new_tag = { name: this.state.addtagval }
-            // Add tag to database
-            fetch('/tags', {
-                method: 'post',
-                body: JSON.stringify(new_tag),
-                headers: { 'Content-Type': 'application/json' }
-            }).then((response) => {
-                if (response.status === 200){
-                    this.fetchTags()
-                    alert('Tag successfuly added');
-                }
-                else{
-                    alert("Error adding tag")
-                }
-            });
+                const new_tag = { name: this.state.addtagval }
+                // Add tag to database
+                fetch('/tags', {
+                    method: 'post',
+                    body: JSON.stringify(new_tag),
+                    headers: { 'Content-Type': 'application/json' }
+                }).then((response) => {
+                    if (response.status === 200){
+                        this.fetchTags()
+                        alert('Tag successfuly added');
+                    }
+                    else{
+                        alert("Error adding tag")
+                    }
+                });
+            }
         }
+        else{
+            alert("Tag cannot be blank")
+        }
+        
     }
 
     deleteTagOnClick = () => {

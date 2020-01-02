@@ -42,6 +42,7 @@ class Mainpage extends Component{
         }
     }
 
+    // When delete button is clicked
     ondeleteclick = (event) => {
         if(confirm("Are you sure you want to delete this task?")){
             const targetid = event.target.id.substring(6)
@@ -61,6 +62,7 @@ class Mainpage extends Component{
         else{}
     }
 
+    // When update button is clicked 
     onUpdateClick = (taskid) => {
         const { update_task, update_tag } = this.state
         const update_confirm = confirm("Are you sure you want to update the task?")
