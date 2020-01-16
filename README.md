@@ -6,10 +6,16 @@ This project is an assignment for NUS Computing for Voluntary Welfare Organisati
 Name: Low En Hao <br>
 Matrix Number: A0200239U
 
-Note: The image showing that I have successfully set up rails is called "On_rails.png"
+Note: All Submission item is in the "Assignment Submission Folder"
 
 Mid-Assignment File:
 <ul>
   <li>"On_rails.png"</li>
   <li>"Mid-Assignment Writeup.pdf"</li>
 </ul>  
+
+Final-Assignment File:
+<ul>
+  <li>"Final Assignment Submission.pdf"</li>
+</ul>  
+
